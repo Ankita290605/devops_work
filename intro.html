@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Intro</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#4f46e5;
+      --muted:#6b7280;
+      --maxw:760px;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,var(--bg),#eef2ff);
+      padding:32px;
+    }
+    .card{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(15,23,42,0.08);
+      padding:28px;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+    /* photo */
+    .photo-wrap{
+      flex: 0 0 150px;
+      height:150px;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#eef2ff,#fff);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .photo-wrap img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    /* text */
+    .content{flex:1; min-width:0;}
+    h1{margin:0 0 8px 0;font-size:1.35rem;line-height:1.1;color:#0f172a;}
+    p.lead{margin:0 0 12px 0;color:var(--muted);font-size:1rem;}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:#f3f4f6;padding:6px 10px;border-radius:999px;font-size:0.85rem;color:#374151}
+    .cta{margin-top:14px}
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      background:var(--accent);
+      color:white;
+      box-shadow:0 6px 18px rgba(79,70,229,0.18);
+    }
+
+    /* responsive stack */
+    @media (max-width:600px){
+      .card{flex-direction:column;align-items:stretch;padding:20px}
+      .photo-wrap{width:120px;height:120px;margin:0 auto;border-radius:999px}
+      .content{text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="intro-heading">
+    <figure class="photo-wrap" aria-hidden="false">
+      <!-- Replace "photo.jpg" with your image file name or an image URL (e.g. https://example.com/me.jpg) -->
+      <img src="photo.jpg" alt="Portrait photo of [Your Name]" />
+      <!-- If you don't have a local file, you can use an external URL: src="https://..." -->
+    </figure>
+
+    <section class="content">
+      <!-- Replace the text below with your actual intro -->
+      <h1 id="intro-heading">Hi — I'm <span id="your-name">ANKITA</span> 👋</h1>
+      <p class="lead">
+        I'm Ankita 3rd year student who loves building things with code,
+        learning data science, and creating helpful content. I enjoy turning ideas into working
+        projects and learning something new every day.
+      </p>
+
+      <div class="tags" aria-hidden="true">
+        <!-- Optional small badges — edit or remove -->
+        <span class="tag">Web Dev</span>
+        <span class="tag">Data Science</span>
+        <span class="tag">Public Speaking</span>
+      </div>
+
+      <div class="cta">
+        <!-- Edit the link or remove if you don't need it -->
+        <a class="btn" href="#" onclick="alert('Replace this link with your resume, GitHub, or contact method.')">
+          View my work
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Small script to make the alt+name in image and heading consistent if desired -->
+  <script>
+    // If you want to programmatically set the image alt and heading to the same name:
+    (function(){
+      const nameEl = document.getElementById('your-name');
+      if(!nameEl) return;
+      const name = nameEl.textContent.trim();
+      const img = document.querySelector('.photo-wrap img');
+      if(img && name) img.alt = "Portrait photo of " + name;
+      document.title = name + " — Intro";
+    })();
+  </script>
+</body>
+</html>
